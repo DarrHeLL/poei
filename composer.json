@@ -73,11 +73,6 @@
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/Commands/{$name}": ["type:drupal-drush"]
         },
-        "merge-plugin": {
-            "include": [
-                "web/modules/custom/test/composer.json"
-            ]
-        },
         "drupal-scaffold": {
             "initial": {
                 ".editorconfig": "../.editorconfig",

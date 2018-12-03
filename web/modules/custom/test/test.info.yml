@@ -1,7 +1,0 @@
-name: 'Test'
-type: module
-description: 'Description du module test'
-core: 8.x
-package: 'Training'
-dependencies:
-  - context
