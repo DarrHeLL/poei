@@ -87,7 +87,6 @@ maintenance_page:
     - ive/global-styling
 
 ive:
-  version: VERSION
   css:
     theme:
       css/ive.css: {}

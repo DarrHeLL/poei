@@ -1,3 +1,7 @@
 a:hover{
-	color: red;
+	color: green;
+}
+
+body{
+	background-color: black;
 }
