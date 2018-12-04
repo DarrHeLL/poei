@@ -2,6 +2,79 @@ a:hover{
 	color: green;
 }
 
-body{
-	background-color: black;
+#page{
+	background-color: #e8e8e8;
+}
+
+#main-wrapper{
+	background-color: #e8e8e8;
+}
+
+#content{
+	background-color: #e8e8e8;
+	color: #101010;
+	font-family: verdana;
+	font-size: 12px;
+}
+
+.node__title a{
+	color: #f6f6f2;
+}
+
+.node__title a:hover{
+	color: green;
+}
+
+#sidebar-first .block{
+	-moz-box-shadow: 5px 5px 5px 0px #8e8e8e;
+	-webkit-box-shadow: 5px 5px 5px 0px #8e8e8e;
+	-o-box-shadow: 5px 5px 5px 0px #8e8e8e;
+	box-shadow: 5px 5px 5px 0px #8e8e8e;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#8e8e8e, Direction=134, Strength=5);
+
+	padding: 20px;
+	background: #eeeeee;
+	border: 0px solid #bbbbbb;
+	
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+#sidebar-second .block{
+	-moz-box-shadow: 5px 5px 5px 0px #8e8e8e;
+	-webkit-box-shadow: 5px 5px 5px 0px #8e8e8e;
+	-o-box-shadow: 5px 5px 5px 0px #8e8e8e;
+	box-shadow: 5px 5px 5px 0px #8e8e8e;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#8e8e8e, Direction=134, Strength=5);
+
+	padding: 20px;
+	background: #eeeeee;
+	border: 0px solid #bbbbbb;
+
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+
+.node--type-article, .node--type-page{
+	margin-top: -13px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #f3f3f3;
+
+	padding: 20px;
+	background: #eeeeee;
+	border: 2px solid #f2f2f2;
+	
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+.drupal8-footer{
+	padding: 15px;
+	margin: auto;
+	max-width: 1290px;
 }
