@@ -90,3 +90,8 @@ ive:
   css:
     theme:
       css/ive.css: {}
+
+article_teaser:
+  css:
+    layout:
+      css/components/article-teaser.css: {}

@@ -1,0 +1,13 @@
+/**
+ * Visual style for teasered articles
+ */
+
+.flex_article {
+    display: flex;
+}
+
+.flex_article div {
+    flex-basis: 100%;
+    flex-grow: 0;
+}
+

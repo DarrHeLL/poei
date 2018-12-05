@@ -6,7 +6,7 @@ set classes = [
 ]
 %}
 <div{{ attributes.addClass(classes) }}>
-    <img src="{{ directory }}/images/drupal8.png" />
+    <img src="{{ theme_path }}/images/drupal8.png" />
     {% block content %}
         <div{{ content_attributes.addClass('content') }}>
             {{ content }}
