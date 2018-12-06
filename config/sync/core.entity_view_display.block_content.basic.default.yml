@@ -1,4 +1,4 @@
-uuid: feb9d283-afae-4cb2-9bdd-3ec958228a23
+uuid: aae8c80d-79f1-47b5-8cb2-f76844b71530
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,13 @@ dependencies:
     - block_content.type.basic
     - field.field.block_content.basic.body
   module:
+    - field_layout
+    - layout_discovery
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 _core:
   default_config_hash: orJpHUlAc_wiQLMUjIgEJXGeiqylGHMPcmNRjGtct-M
 id: block_content.basic.default
@@ -21,4 +27,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true
