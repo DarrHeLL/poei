@@ -26,14 +26,14 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
             <div class="node__meta">
                 {{ author_picture }}
                 <span{{ author_attributes }}>
-          {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        </span>
+                  {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+                </span>
                 {{ metadata }}
                 {{ content.field_tags }}
             </div>
         {% endif %}
     </header>
-    <div class="flex_article">
+    <div class="flex_article node__content clearfix">
         <div class="flex_element">{{ content.field_image }}</div>
         <div class="flex_element">{{ content.body }}</div>
     </div>
