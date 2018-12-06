@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: ive_narrow
+label: 'Ive Narrow'
+effects:
+  f483f5bb-b238-43ac-ab51-493bc98634de:
+    uuid: f483f5bb-b238-43ac-ab51-493bc98634de
+    id: image_scale
+    weight: 1
+    data:
+      width: 280
+      height: null
+      upscale: false

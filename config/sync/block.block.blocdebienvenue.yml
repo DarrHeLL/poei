@@ -1,0 +1,25 @@
+uuid: be3bcf62-fe19-4e5a-975f-7e0d39cb03a5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:fccd8104-1c18-40c4-8706-b865ea05387f'
+  module:
+    - block_content
+  theme:
+    - ive
+id: blocdebienvenue
+theme: ive
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'block_content:fccd8104-1c18-40c4-8706-b865ea05387f'
+settings:
+  id: 'block_content:fccd8104-1c18-40c4-8706-b865ea05387f'
+  label: 'Bloc de bienvenue'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

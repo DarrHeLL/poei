@@ -1,0 +1,16 @@
+palette:
+  top: '#403b3b'
+  bottom: '#e8e8e8'
+  bg: '#ffffff'
+  sidebar: '#f6f6f2'
+  sidebarborders: '#f9f9f9'
+  footer: '#292929'
+  titleslogan: '#fffeff'
+  text: '#3b3b3b'
+  link: '#0071b3'
+logo: 'public://color/ive-ca2f3b9a/logo.svg'
+stylesheets:
+  - 'public://color/ive-ca2f3b9a/colors.css'
+files:
+  - 'public://color/ive-ca2f3b9a/logo.svg'
+  - 'public://color/ive-ca2f3b9a/colors.css'

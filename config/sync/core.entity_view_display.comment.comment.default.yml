@@ -1,4 +1,4 @@
-uuid: 72ec05a6-8a65-4117-9a94-ef5c82280095
+uuid: 437a65d6-7e9f-4554-9a15-dfe16e428974
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,13 @@ dependencies:
     - comment.type.comment
     - field.field.comment.comment.comment_body
   module:
+    - field_layout
+    - layout_discovery
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 _core:
   default_config_hash: 77Ye1kR-P6AaiGfEO8mnXNSr7nqtnP3PiiVBwJeGGMI
 id: comment.comment.default
@@ -24,4 +30,5 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  langcode: true

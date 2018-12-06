@@ -1,0 +1,10 @@
+.flex-foursquares {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.flex-foursquares div {
+    margin-bottom: 5%;
+    flex: 0 0 40%;
+}

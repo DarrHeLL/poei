@@ -1,0 +1,16 @@
+{% if content %}
+    <div class="flex-foursquares">
+        {% if content.top_left %}
+            <div>{{ content.top_left }}</div>
+        {% endif %}
+        {% if content.top_right %}
+            <div>{{ content.top_right }}</div>
+        {% endif %}
+        {% if content.bottom_left %}
+            <div>{{ content.bottom_left }}</div>
+        {% endif %}
+        {% if content.bottom_right %}
+            <div>{{ content.bottom_right }}</div>
+        {% endif %}
+    </div>
+{%  endif %}

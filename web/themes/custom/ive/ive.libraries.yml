@@ -90,3 +90,18 @@ ive:
   css:
     theme:
       css/ive.css: {}
+  js:
+    js/ive.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+article_teaser:
+  css:
+    layout:
+      css/components/article-teaser.css: {}
+
+foursquares:
+  css:
+    layout:
+      layouts/foursquares/foursquares.css: {}

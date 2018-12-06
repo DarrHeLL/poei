@@ -1,4 +1,4 @@
-uuid: 473da1bd-b1db-4125-b824-117ad8d7fa4c
+uuid: 9ba98e89-ea6f-41f8-b6b2-29b97d325002
 langcode: en
 status: true
 dependencies:
@@ -6,8 +6,14 @@ dependencies:
     - field.field.node.page.body
     - node.type.page
   module:
+    - field_layout
+    - layout_discovery
     - path
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 _core:
   default_config_hash: sb0qCkzU_8mNq29NehYAU8jCBXWPLeX0UN8sYFVGVcw
 id: node.page.default
@@ -29,6 +35,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
     third_party_settings: {  }
   path:
     type: path
