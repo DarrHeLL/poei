@@ -105,3 +105,9 @@ foursquares:
   css:
     layout:
       layouts/foursquares/foursquares.css: {}
+
+jquery_tabs:
+  js:
+    layouts/jquery_tabs/jquery-ui-tabs.js: {}
+  dependencies:
+    - core/jquery.ui.tabs
