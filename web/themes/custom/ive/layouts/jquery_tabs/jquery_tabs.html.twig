@@ -1,0 +1,39 @@
+{% if content %}
+    {{ kint(content.third_tab) }}
+    <div id="jquery-tabs">
+        <ul>
+            {% if content.first_tab|first|length != '0' %}
+                <li><a href="#first_tab">{{ content.first_tab|first['#title'] ? content.first_tab|first['#title']: 'First Tab' }}</a></li>
+            {% endif %}
+            {% if content.second_tab|first|length != '0' %}
+                <li><a href="#second_tab">{{ content.second_tab|first['#title'] ? content.second_tab|first['#title']: 'Second Tab' }}</a></li>
+            {% endif %}
+            {% if content.third_tab|first|length != '0' %}
+                <li><a href="#third_tab">{{ content.third_tab|first['#title'] ? content.third_tab|first['#title']: 'Third Tab' }}</a></li>
+            {% endif %}
+            {% if content.fourth_tab|first|length != '0' %}
+                <li><a href="#fourth_tab">{{ content.fourth_tab|first['#title'] ? content.fourth_tab|first['#title']: 'Fourth Tab' }}</a></li>
+            {% endif %}
+        </ul>
+        {% if content.first_tab %}
+            <div id="first_tab">
+                {{ content.first_tab }}
+            </div>
+        {% endif %}
+        {% if content.second_tab %}
+            <div id="second_tab">
+                {{ content.second_tab }}
+            </div>
+        {% endif %}
+        {% if content.third_tab %}
+            <div id="third_tab">
+                {{ content.third_tab }}
+            </div>
+        {% endif %}
+        {% if content.fourth_tab %}
+            <div id="fourth_tab">
+                {{ content.fourth_tab }}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
