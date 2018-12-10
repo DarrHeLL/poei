@@ -1,0 +1,8 @@
+hello.hello:
+  path: '/hello/{param}'
+  defaults:
+    _title: 'Hello'
+    _controller: 'Drupal\hello\Controller\HelloController::content'
+    param: 'this is the default value for PARAM'
+  requirements:
+    _access: 'TRUE'
