@@ -9,6 +9,7 @@
 namespace Drupal\hello\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 class HelloController extends ControllerBase{
@@ -20,5 +21,13 @@ class HelloController extends ControllerBase{
                 '%param' => $param
               ])
             ];
+  }
+  
+  public function json(){
+    $response = new JsonResponse();
+    
+    $response->setData(['1' => 'toto', '2' => 'titi', '3' => 'tutu']);
+    
+    return $response;
   }
 }

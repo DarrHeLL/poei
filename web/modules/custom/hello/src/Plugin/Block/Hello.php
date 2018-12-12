@@ -23,16 +23,18 @@ class Hello extends BlockBase {
   public function build() {
     $dateTime = \Drupal::service('datetime.time')->getCurrentTime();
     $dateFormat = \Drupal::service('date.formatter');
+    $userName = \Drupal::service('current_user')->getAccountName();
     $date = $dateFormat->format($dateTime, 'custom', $format = "H:i:s", $timezone = NULL, $langcode = NULL);
     
-    $markup = $this->t('Welcome to our website. It is %date',
+    $markup = $this->t('Hi %username! Welcome to our website. It is %date',
     [
-      '%date' => $date
+      '%date' => $date,
+      '%username' => $userName ? $userName : $this->t('Guest')
     ]);
     
     $cache = [
       'keys' => ['hello:block'],
-      'max-age' => '0'
+      'contexts' => ['user', 'timezone'],
     ];
     
     $build = [

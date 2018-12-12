@@ -9,6 +9,7 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
 use Drupal\user\UserInterface;
+use Drupal\Core\Session\AccountInterface;
 
 /**
  * Implements hook_help().
@@ -48,6 +49,39 @@ function hello_user_login(UserInterface $account) {
   $messenger = Drupal::messenger();
   $messenger->addMessage(
     t("Hello %name, hope you're doing fine ?",
-              ['%name' => $account->getAccountName()]
+      ['%name' => $account->getAccountName()]
     ));
+  
+  // Insertion de l'évenement connexion en base de données
+  $insert = [
+    'time' => REQUEST_TIME,
+    'action' => 1,
+    'uid' => $account->id(),
+  ];
+  
+  $database = \Drupal::database();
+  $database->insert('hello_user_statistics')->fields($insert)->execute();
+}
+
+/**
+ * Implements hook_user_logout().
+ */
+function hello_user_logout(AccountInterface $account) {
+  // Insertion de l'évenement déconnexion en base de données
+  $insert = [
+    'time' => REQUEST_TIME,
+    'action' => 0,
+    'uid' => $account->id(),
+  ];
+  
+  $database = \Drupal::database();
+  $database->insert('hello_user_statistics')->fields($insert)->execute();
+}
+
+
+
+function hello_user_delete(UserInterface $account){
+  // On efface les occurences concernant le user supprimé dans la base hello_user_statistics
+  $database = \Drupal::database();
+  $database->delete('hello_user_statistics')->condition('uid', $account->id())->execute();
 }
