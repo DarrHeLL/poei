@@ -1,0 +1,87 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: POE1
+ * Date: 07/12/2018
+ * Time: 16:31
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\user\UserInterface;
+use Drupal\Core\Session\AccountInterface;
+
+/**
+ * Implements hook_help().
+ */
+function hello_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.hello':
+      $variables = [
+        ':toolbar' => Url::fromRoute('help.page', ['name' => 'hello'])
+          ->toString(),
+        ':automated_cron' => (\Drupal::moduleHandler()
+          ->moduleExists('automated_cron')) ? Url::fromRoute('help.page', ['name' => 'automated_cron'])
+          ->toString() : '#',
+      ];
+      
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module is just for saying Hello', $variables) . '</p>';
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= t('This is just for fun so enjoy and have fun :)');
+      
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function hello_cron() {
+  drupal_set_message('hello cron');
+}
+
+/**
+ * Implements hook_user_login().
+ */
+function hello_user_login(UserInterface $account) {
+  $messenger = Drupal::messenger();
+  $messenger->addMessage(
+    t("Hello %name, hope you're doing fine ?",
+      ['%name' => $account->getAccountName()]
+    ));
+  
+  // Insertion de l'évenement connexion en base de données
+  $insert = [
+    'time' => REQUEST_TIME,
+    'action' => 1,
+    'uid' => $account->id(),
+  ];
+  
+  $database = \Drupal::database();
+  $database->insert('hello_user_statistics')->fields($insert)->execute();
+}
+
+/**
+ * Implements hook_user_logout().
+ */
+function hello_user_logout(AccountInterface $account) {
+  // Insertion de l'évenement déconnexion en base de données
+  $insert = [
+    'time' => REQUEST_TIME,
+    'action' => 0,
+    'uid' => $account->id(),
+  ];
+  
+  $database = \Drupal::database();
+  $database->insert('hello_user_statistics')->fields($insert)->execute();
+}
+
+
+
+function hello_user_delete(UserInterface $account){
+  // On efface les occurences concernant le user supprimé dans la base hello_user_statistics
+  $database = \Drupal::database();
+  $database->delete('hello_user_statistics')->condition('uid', $account->id())->execute();
+}

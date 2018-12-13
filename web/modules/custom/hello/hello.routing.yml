@@ -1,0 +1,33 @@
+hello.statistics:
+  path: '/user/{user}/statistics'
+  defaults:
+    _title: 'Hello user stats'
+    _controller: '\Drupal\hello\Controller\StatisticsController::getUserStatistics'
+  requirements:
+    _access: 'TRUE'
+
+hello.hello:
+  path: '/hello/{param}'
+  defaults:
+    _title: 'Hello'
+    _controller: '\Drupal\hello\Controller\HelloController::content'
+    param: 'this is the default value for PARAM'
+  requirements:
+    _access: 'TRUE'
+
+hello.json:
+  path: '/hello-json'
+  defaults:
+    _title: 'Hello Json'
+    _controller: '\Drupal\hello\Controller\HelloController::json'
+  requirements:
+    _access: 'TRUE'
+
+hello.liste-noeuds:
+  path: '/hello/liste-noeuds/{nodeType}'
+  defaults:
+    _title: 'Node Type List'
+    _controller: '\Drupal\hello\Controller\ListeNoeudsController::getNodeByType'
+    nodeType: 'all'
+  requirements:
+    _access: 'TRUE'
