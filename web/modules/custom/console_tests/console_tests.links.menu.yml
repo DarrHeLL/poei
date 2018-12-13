@@ -1,0 +1,5 @@
+console_tests.console_test_controller_hello:
+  title: 'Console TESTS'
+  route_name: console_tests.console_test_controller_hello
+  menu_name: 'main'
+  weight: '2'

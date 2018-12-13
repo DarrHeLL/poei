@@ -1,0 +1,7 @@
+console_tests.console_test_controller_hello:
+  path: '/console-tests'
+  defaults:
+    _controller: '\Drupal\console_tests\Controller\ConsoleTestController::hello'
+    _title: 'console_test'
+  requirements:
+    _permission: 'access content'
