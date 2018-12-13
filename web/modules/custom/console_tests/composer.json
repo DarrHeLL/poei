@@ -1,0 +1,14 @@
+{
+  "name": "drupal/console_tests",
+  "type": "drupal-module",
+  "description": "Console testings.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/console_tests",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/console_tests",
+    "source": "http://cgit.drupalcode.org/console_tests"
+  },
+  "require": { }
+}

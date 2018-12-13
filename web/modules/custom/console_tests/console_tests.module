@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains console_tests.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function console_tests_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the console_tests module.
+    case 'help.page.console_tests':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Console testings.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function console_tests_theme() {
+  return [
+    'console_tests' => [
+      'render element' => 'children',
+    ],
+  ];
+}
