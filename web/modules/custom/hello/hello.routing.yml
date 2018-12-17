@@ -31,3 +31,11 @@ hello.liste-noeuds:
     nodeType: 'all'
   requirements:
     _access: 'TRUE'
+
+hello.calculator:
+  path: '/hello/calculator'
+  defaults:
+    _title: 'Calculator'
+    _form: '\Drupal\hello\Form\CalculatorForm'
+  requirements:
+    _access: 'TRUE'

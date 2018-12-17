@@ -25,13 +25,11 @@ function hello_schema() {
         'not null' => TRUE,
       ],
       'uid' => [
-        [
           'description' => 'ID of the user',
           'type' => 'int',
           'length' => 10,
           'not null' => TRUE,
           'unsigned' => TRUE,
-        ]
       ]
     ],
     'primary key' => ['id'],
