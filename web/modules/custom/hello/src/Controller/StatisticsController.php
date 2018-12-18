@@ -20,18 +20,26 @@ class StatisticsController extends ControllerBase{
     $database = \Drupal::database();
     $statistics = $database->select('hello_user_statistics', 'hus')->fields('hus', [])->condition('uid', $user->id())->execute();
     $rows = [];
+    $nb_connect = 0;
     
     foreach($statistics as $statistic){
       if($statistic->action == 0){
         $action = 'Logged out';
       }else{
         $action = 'Logged in';
+        $nb_connect++;
       }
       $rows[] = [
         $action,
         $dateFormat->format($statistic->time)
       ];
     }
+    
+    $user_connection = [
+      '#theme' => 'hello_user_connexion',
+      '#user' => $user,
+      '#nb_connect' => $nb_connect
+    ];
     
     $table = [
       '#theme' => 'table',
@@ -43,6 +51,7 @@ class StatisticsController extends ControllerBase{
     ];
     
     $build = [
+      'hello_user_connection' => $user_connection,
       'table' => $table,
     ];
     

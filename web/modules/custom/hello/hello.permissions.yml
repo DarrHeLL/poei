@@ -1,0 +1,7 @@
+access hello:
+  title: 'Hello session permission'
+  description: 'Permission for the Hello Session Block'
+
+administer hello:
+  title: 'Hello admin session form'
+  description: 'Permission to access to the hello session admin form'

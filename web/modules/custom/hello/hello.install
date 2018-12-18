@@ -25,13 +25,11 @@ function hello_schema() {
         'not null' => TRUE,
       ],
       'uid' => [
-        [
           'description' => 'ID of the user',
           'type' => 'int',
           'length' => 10,
           'not null' => TRUE,
           'unsigned' => TRUE,
-        ]
       ]
     ],
     'primary key' => ['id'],
@@ -50,4 +48,9 @@ function hello_update_8001() {
   ];
   $schema = Database::getConnection()->schema();
   $schema->addField('hello_user_statistics', 'uid', $fieldSpec);
+}
+
+function hello_uninstall() {
+  $state = \Drupal::state();
+  $state->delete('hello_submit_CalcutorForm_time');
 }

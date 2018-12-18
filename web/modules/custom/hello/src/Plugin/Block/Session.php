@@ -8,7 +8,9 @@
 
 namespace Drupal\hello\Plugin\Block;
 
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Session\AccountInterface;
 
 /**
  * Provides a session block
@@ -19,6 +21,9 @@ use Drupal\Core\Block\BlockBase;
  * )
  */
 class Session extends BlockBase {
+  protected function blockAccess(AccountInterface $account) {
+    return AccessResult::allowedIfHasPermission($account, 'access hello');
+  }
   
   public function build() {
     $database = \Drupal::database();
