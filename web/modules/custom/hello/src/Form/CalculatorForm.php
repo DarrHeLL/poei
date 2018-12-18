@@ -141,6 +141,10 @@ class CalculatorForm extends FormBase {
     $form_state->addRebuildInfo('resultat', $resultat);
     
     $form_state->setRebuild();
+    
+    // Ajout du timestamp courrant dans state lors de la soumission du formulaire
+    $state = \Drupal::state();
+    $state->set('hello_submit_CalcutorForm_time', time());
   }
   
   public function validateTextAjax(&$form, FormStateInterface $form_state){

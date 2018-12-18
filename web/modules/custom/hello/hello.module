@@ -39,7 +39,36 @@ function hello_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route
  * Implements hook_cron().
  */
 function hello_cron() {
-  drupal_set_message('hello cron');
+  // ***** Suppression des log de connexion en fonction du paramètre ***** //
+  $purge_days_number = \Drupal::config('hello.settings')->get('purge_days_number');
+  
+  // Si le paramètre est différent de 0
+  if($purge_days_number != 0)
+  {
+    // On commence par convertir le nombre de jour por la purge en seconde
+    $timestamp_pdn = 24*3600*$purge_days_number;
+  
+    // On enlève le timestamp de purge au timestamp courrant pour obtenir la valeur à comparer en base
+    $timestamp_compare = time() - $timestamp_pdn;
+  
+    // On crée la requete de suppression des données
+    $database = \Drupal::database();
+    $nb_delete = $database->delete('hello_user_statistics')->condition('time', $timestamp_compare, '<=')->execute();
+  
+    // On envoi un message pour avertir du nombre d'éléments supprimés
+    $messenger = Drupal::messenger();
+    $messenger->addMessage(
+      t('Connexion log(s) deleted : ' . $nb_delete)
+    );
+  
+    // Ajout du message en recent log
+    \Drupal::logger('cron')->info('Connexion log deleted (%nb elements)',
+      [
+        '%nb' => $nb_delete,
+      ]
+    );
+  }
+  // ***** Fin de la partie suppression des logs de connexion ***** //
 }
 
 /**
@@ -78,10 +107,23 @@ function hello_user_logout(AccountInterface $account) {
   $database->insert('hello_user_statistics')->fields($insert)->execute();
 }
 
-
-
 function hello_user_delete(UserInterface $account){
   // On efface les occurences concernant le user supprimé dans la base hello_user_statistics
   $database = \Drupal::database();
   $database->delete('hello_user_statistics')->condition('uid', $account->id())->execute();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function hello_theme($existing, $type, $theme, $path) {
+  return [
+    'hello_user_connexion' => [
+      'template' => 'hello-user-connexion',
+      'variables' => [
+        'user' => NULL,
+        'nb_connect' => NULL,
+      ]
+    ]
+  ];
 }
