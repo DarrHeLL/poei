@@ -4,7 +4,7 @@ hello.statistics:
     _title: 'Hello user stats'
     _controller: '\Drupal\hello\Controller\StatisticsController::getUserStatistics'
   requirements:
-    _access: 'TRUE'
+    _access_check: '12'
 
 hello.hello:
   path: '/hello/{param}'

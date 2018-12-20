@@ -1,0 +1,9 @@
+services:
+  access_check.hello:
+    class: 'Drupal\hello\Access\AccessCheck'
+    tags:
+      - { name: access_check, applies_to: _access_check }
+  event_subscriber.routing.hello:
+    class: 'Drupal\hello\Routing\AlterAccess'
+    tags:
+      - { name: event_subscriber }
