@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d3d40bad3ff837508e0925f83371ef3",
+    "content-hash": "87299ffbf1eb63291a3490a5d2708f87",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1498,17 +1498,11 @@
         },
         {
             "name": "drupal/admin_toolbar",
-            "version": "1.25.0",
+            "version": "dev-1.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/admin_toolbar",
-                "reference": "8.x-1.25"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/admin_toolbar-8.x-1.25.zip",
-                "reference": "8.x-1.25",
-                "shasum": "bc24929d5e49932518797c1228e647e98b03542b"
+                "reference": "15f34d80cb3afd53d965c4473979085bcc6600c1"
             },
             "require": {
                 "drupal/core": "*"
@@ -1519,11 +1513,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.25",
-                    "datestamp": "1542915180",
+                    "version": "8.x-1.24+9-dev",
+                    "datestamp": "1542912780",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -1575,7 +1569,8 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/admin_toolbar",
                 "issues": "https://www.drupal.org/project/issues/admin_toolbar"
-            }
+            },
+            "time": "2018-11-22 18:49:45"
         },
         {
             "name": "drupal/config_filter",
@@ -6147,7 +6142,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "drupal/admin_toolbar": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
