@@ -10,6 +10,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
 use Drupal\user\UserInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_help().
@@ -81,30 +82,49 @@ function hello_user_login(UserInterface $account) {
       ['%name' => $account->getAccountName()]
     ));
   
-  // Insertion de l'évenement connexion en base de données
-  $insert = [
-    'time' => REQUEST_TIME,
-    'action' => 1,
-    'uid' => $account->id(),
-  ];
+  // on commence par regarder si le role du user fait partie des roles traqués
+  // récupération de la config
+  $config_user_roles = Drupal::config('hello.settings')->get('user_roles');
+  // Récupération des roles de l'utilisateur
+  $user_roles = $account->getRoles();
   
-  $database = \Drupal::database();
-  $database->insert('hello_user_statistics')->fields($insert)->execute();
+  // On regarde si il y a au moins une occurence commune dans les tableaux alors on track
+  $tab_compare = array_intersect($config_user_roles, $user_roles);
+  if(count($tab_compare) > 0){
+    // Insertion de l'évenement connexion en base de données
+    $insert = [
+      'time' => REQUEST_TIME,
+      'action' => 1,
+      'uid' => $account->id(),
+    ];
+    // Execution de la requete
+    $database = \Drupal::database();
+    $database->insert('hello_user_statistics')->fields($insert)->execute();
+  }
 }
 
 /**
  * Implements hook_user_logout().
  */
 function hello_user_logout(AccountInterface $account) {
-  // Insertion de l'évenement déconnexion en base de données
-  $insert = [
-    'time' => REQUEST_TIME,
-    'action' => 0,
-    'uid' => $account->id(),
-  ];
+  // On récupère les roles depuis la configuration
+  $config_user_roles = Drupal::config('hello.settings')->get('user_roles');
+  // On récupère les roles de l'utilisateur
+  $user_roles = $account->getRoles();
   
-  $database = \Drupal::database();
-  $database->insert('hello_user_statistics')->fields($insert)->execute();
+  // On regarde si il y a des occurences communes dans les deux tableaux de roles alors on track
+  $tab_compare = array_intersect($config_user_roles, $user_roles);
+  if(count($tab_compare) > 0){
+    // Insertion de l'évenement déconnexion en base de données
+    $insert = [
+      'time' => REQUEST_TIME,
+      'action' => 0,
+      'uid' => $account->id(),
+    ];
+  
+    $database = \Drupal::database();
+    $database->insert('hello_user_statistics')->fields($insert)->execute();
+  }
 }
 
 function hello_user_delete(UserInterface $account){
@@ -126,4 +146,42 @@ function hello_theme($existing, $type, $theme, $path) {
       ]
     ]
   ];
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function hello_form_user_admin_settings_alter(&$form, FormStateInterface $form_state) {
+  //récupération de la configuration
+  $config_user_roles = Drupal::config('hello.settings')->get('user_roles');
+  
+  // Récupération de l'entity type mnager
+  $entity_manager = Drupal::entityTypeManager();
+  
+  // Récupération des roles utilisateurs
+  $roles = $entity_manager->getStorage('user_role')->loadMultiple();
+  
+  $roles_tab = [];
+  foreach($roles as $role){
+    if($role->id() != 'anonymous' AND $role->id() != 'authenticated')
+    $roles_tab[$role->id()] = $role->label();
+  }
+  
+  $form['activity_collect'] = [
+    '#type' => 'details',
+    '#title' => t('Role(s) that you want to collect activity'),
+    'user_roles' => [
+      '#type' => 'checkboxes',
+      '#options' => $roles_tab,
+      '#default_value' => $config_user_roles,
+    ],
+    '#weight' => '-100'
+  ];
+  
+  $form['#submit'][] = 'user_admin_settings_alter_submit';
+}
+
+function user_admin_settings_alter_submit(&$form, FormStateInterface $form_state){
+  // On enregistre la valeur sélectionnée
+  Drupal::configFactory()->getEditable('hello.settings')->set('user_roles', $form_state->getValue('user_roles'))->save();
 }
