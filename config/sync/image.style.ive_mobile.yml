@@ -1,7 +1,9 @@
-uuid: 3c107494-e38b-4635-b32d-5f02f5bc931f
+uuid: bf263a77-8606-4695-902d-5732399b966e
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: J4Qn93_ubJjpZRyX_IOw6ZDstYdBN-Eep4Skj_kSPYM
 name: ive_mobile
 label: 'Ive Mobile'
 effects:

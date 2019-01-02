@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_fichier
     - node.type.page
   module:
     - field_layout
+    - file
     - layout_discovery
     - text
     - user
@@ -28,6 +30,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_fichier:
+    weight: 102
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
   links:
     weight: 101
     region: content

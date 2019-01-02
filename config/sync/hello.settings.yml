@@ -1,0 +1,7 @@
+purge_days_number: '1'
+user_roles:
+  contributor: contributor
+  administrator: 0
+  webmaster: 0
+_core:
+  default_config_hash: IKQWqum_RttzTt3qlwkEBLjcuNUgiVreKtmRoiuNQ9k
