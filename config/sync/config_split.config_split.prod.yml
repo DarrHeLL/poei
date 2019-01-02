@@ -12,6 +12,7 @@ blacklist: {  }
 graylist:
   - system.performance
   - system.site
+  - 'webform.*'
 graylist_dependents: true
 graylist_skip_equal: true
 weight: 0
