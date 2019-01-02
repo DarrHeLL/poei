@@ -1,4 +1,4 @@
-uuid: be3bcf62-fe19-4e5a-975f-7e0d39cb03a5
+uuid: 0c68a6a7-a902-44d5-91d2-8e169e0abbb0
 langcode: en
 status: true
 dependencies:
@@ -18,7 +18,7 @@ settings:
   id: 'block_content:fccd8104-1c18-40c4-8706-b865ea05387f'
   label: 'Bloc de bienvenue'
   provider: block_content
-  label_display: visible
+  label_display: '0'
   status: true
   info: ''
   view_mode: full

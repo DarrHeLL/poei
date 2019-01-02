@@ -21,6 +21,7 @@
         "drupal-composer/drupal-scaffold": "^2.5",
         "drupal/admin_toolbar": "1.x-dev",
         "drupal/config_split": "^1.4",
+        "drupal/config_update": "^1.6",
         "drupal/console": "^1.0.2",
         "drupal/core": "^8.6.0",
         "drupal/image_effects": "~2.0",
