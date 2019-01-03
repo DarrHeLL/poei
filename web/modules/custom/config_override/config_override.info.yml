@@ -1,0 +1,5 @@
+name: Config Override
+description: Config Override module for D8 developer training
+type: module
+core: 8.x
+package: Training
