@@ -1,0 +1,90 @@
+description: 'Trouver et gérer les fichiers.'
+display:
+  default:
+    display_title: Maître
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filtrer
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          tags:
+            previous: "‹\_précédent"
+            next: "suivant\_›"
+          expose:
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options_all_label: '- Tout -'
+            offset_label: Décalage
+      fields:
+        fid:
+          label: 'Identifiant (FID)'
+        filename:
+          label: Nom
+        type:
+          label: Type
+        filesize:
+          label: Taille
+        status:
+          label: Etat
+        changed:
+          label: Modifié
+          separator: ', '
+        created:
+          label: Créé(e)
+          separator: ', '
+        count:
+          label: 'Utilisé dans'
+        operations:
+          label: Actions
+      filters:
+        filename:
+          expose:
+            label: 'Nom du fichier'
+        status:
+          expose:
+            label: Etat
+        type:
+          expose:
+            label: Type
+      title: Fichiers
+      empty:
+        area_text_custom:
+          content: 'Aucun fichier disponible.'
+  overview:
+    display_title: 'Vue d''ensemble des fichiers'
+    display_options:
+      menu:
+        title: Fichiers
+  usage:
+    display_title: 'Utilisation du fichier'
+    display_options:
+      pager:
+        options:
+          tags:
+            previous: "‹\_précédent"
+            next: "suivant\_›"
+          expose:
+            items_per_page_label: 'Éléments par page'
+            items_per_page_options_all_label: '- Tout -'
+            offset_label: Décalage
+      fields:
+        entity_label:
+          label: Entité
+        type:
+          label: 'Type d''entité'
+        module:
+          label: 'Enregistrement du module'
+        count:
+          label: 'Nombre d''utilisations'
+      title: 'Utilisation du fichier'
+      arguments:
+        fid:
+          exception:
+            title: Tout
+          title: 'Information d''utilisation du fichier {{ arguments.fid }}'
+      menu:
+        title: Utilisation

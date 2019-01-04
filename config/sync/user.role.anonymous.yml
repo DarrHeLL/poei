@@ -15,4 +15,5 @@ permissions:
   - 'post comments'
   - 'search content'
   - 'use text format restricted_html'
+  - 'view files'
   - 'view webprofiler toolbar'
