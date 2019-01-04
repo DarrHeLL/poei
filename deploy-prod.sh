@@ -2,7 +2,7 @@
 
 #Passage du site en mode maintenance
 #drush sset system.maintenance_mode 1
-#drush config-set readonlymode.settings enabled 1 -y 
+drush config-set readonlymode.settings enabled 1 -y 
 drush cr
 
 #On fait un pull 
@@ -30,5 +30,5 @@ git push origin master
 
 #Désactivation du mode maintenance
 #drush sset system.maintenance_mode 0
-#drush config-set readonlymode.settings enabled 0 -y
+drush config-set readonlymode.settings enabled 0 -y
 drush cr
