@@ -19,16 +19,20 @@ module:
   contextual: 0
   ctools: 0
   datetime: 0
+  default_content: 0
+  default_content_deploy: 0
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
   field: 0
   field_layout: 0
   file: 0
+  file_entity: 0
   file_mdm: 0
   file_mdm_exif: 0
   file_mdm_font: 0
   filter: 0
+  hal: 0
   hello: 0
   history: 0
   image: 0
@@ -47,6 +51,7 @@ module:
   rdf: 0
   responsive_image: 0
   search: 0
+  serialization: 0
   shortcut: 0
   system: 0
   taxonomy: 0

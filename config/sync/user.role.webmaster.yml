@@ -6,4 +6,5 @@ id: webmaster
 label: Webmaster
 weight: 4
 is_admin: null
-permissions: {  }
+permissions:
+  - 'view files'
