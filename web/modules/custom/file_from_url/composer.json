@@ -1,0 +1,14 @@
+{
+  "name": "drupal/file_from_url",
+  "type": "drupal-module",
+  "description": "Download a file from an URL",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/file_from_url",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/file_from_url",
+    "source": "http://cgit.drupalcode.org/file_from_url"
+  },
+  "require": { }
+}

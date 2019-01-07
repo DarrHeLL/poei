@@ -28,6 +28,7 @@ module:
   field_layout: 0
   file: 0
   file_entity: 0
+  file_from_url: 0
   file_mdm: 0
   file_mdm_exif: 0
   file_mdm_font: 0
