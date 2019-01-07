@@ -1,0 +1,5 @@
+name: 'File from URL'
+type: module
+description: 'Download a file from an URL'
+core: 8.x
+package: 'Training'
