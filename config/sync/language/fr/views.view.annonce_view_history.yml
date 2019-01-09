@@ -1,0 +1,22 @@
+display:
+  default:
+    display_title: Maître
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Appliquer
+          reset_button_label: Réinitialiser
+          exposed_sorts_label: 'Trier par'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      fields:
+        name:
+          separator: ', '
+        name_1:
+          separator: ', '
+      filters:
+        uid:
+          group_info:
+            label: 'Nom (autocomplétion)'
+  page_1:
+    display_title: Page
