@@ -1,0 +1,47 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: POE1
+ * Date: 09/01/2019
+ * Time: 09:56
+ */
+
+use Drupal\Core\Database\Database;
+
+function annonce_schema() {
+  $schema['annonce_views_history'] = [
+    'description' => 'Stores views on each advert.',
+    'fields' => [
+      'id' => [
+        'description' => 'Primary Key: Unique history ID.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'annonce_id' => [
+        'description' => 'Id for the advert who as been watched.',
+        'type' => 'int',
+        'length' => 10,
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+      ],
+      'uid' => [
+        'description' => 'Id of the user who was watching the advert.',
+        'type' => 'int',
+        'length' => 10,
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+      ],
+      'time' => [
+        'description' => 'Timestamp at the moment who someone is watching the annonce.',
+        'type' => 'int',
+        'length' => 10,
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+  
+  return $schema;
+}

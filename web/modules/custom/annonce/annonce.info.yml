@@ -1,0 +1,6 @@
+name: 'Annonce'
+type: module
+description: 'Annonce managing.'
+core: 8.x
+version: 8.x-1.x
+package: 'Training'
