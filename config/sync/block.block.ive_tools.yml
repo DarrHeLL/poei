@@ -5,6 +5,7 @@ dependencies:
   config:
     - system.menu.tools
   module:
+    - bloc_date
     - system
   theme:
     - ive
@@ -23,4 +24,11 @@ settings:
   label_display: visible
   level: 1
   depth: 0
-visibility: {  }
+visibility:
+  date_condition:
+    id: date_condition
+    '': ''
+    negate: null
+    context_mapping: {  }
+    start_date: '2019-01-09'
+    end_date: '2019-01-09'

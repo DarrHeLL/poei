@@ -1,0 +1,5 @@
+name: 'Bloc Date'
+type: module
+description: 'Define a date bloc condition'
+core: 8.x
+package: 'Training'
